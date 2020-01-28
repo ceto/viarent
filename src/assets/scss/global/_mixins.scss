@@ -1,0 +1,133 @@
+// FUNCTIONS
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function grid-cols-to-px-width($col-count, $gutter-count: $col-count - 1) {
+  $px-width: ($col-count * $layout-col-width) +
+    ($gutter-count * $layout-gutter-width);
+
+  @return $px-width;
+}
+
+// MIXINS
+
+// Grid-width
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+// FOR: Calculating percentage widths based on a column width, context, gutters
+// WHY: Let's you think in terms of grid column-count and context and not do the math
+// USE: @include grid-width(6);
+// NOTE: Uses layout variables as defaults, located in variables.scss.
+
+@mixin grid-width(
+  $col-count: 6,
+  $context-col-count: $layout-col-count,
+  $context-gutter-count: $context-col-count - 1,
+  $gutter-count: $col-count - 1,
+  $property: "width",
+  $gallery-gutters: false
+) {
+  $width: grid-cols-to-px-width($col-count, $gutter-count);
+  $context-width: grid-cols-to-px-width(
+    $context-col-count,
+    $context-gutter-count
+  );
+  $percentage-width: percentage($width / $context-width);
+
+  #{$property}: $percentage-width;
+
+  @if $gallery-gutters {
+    $items-per-row: $context-col-count / $col-count;
+
+    &:nth-of-type(n) {
+      @include grid-width(
+        $col-count: 0,
+        $gutter-count: 1,
+        $context-col-count: $context-col-count,
+        $property: "margin-right",
+        $gallery-gutters: false
+      );
+    }
+
+    &:nth-child(#{$items-per-row}n),
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+// https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+
+@mixin word-wrap {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+//Brakpoint
+@mixin breakpoint($point) {
+  @if $point == largedesktop {
+    @media (min-width: 100em) {
+      @content;
+    }
+  }
+
+  @if $point == desktop {
+    @media (min-width: 88em) {
+      @content;
+    }
+  } @else if $point == laptop {
+    @media (min-width: 64em) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media (min-width: 42em) {
+      @content;
+    }
+  } @else if $point == phablet {
+    @media (min-width: 37.5em) {
+      @content;
+    }
+  } @else if $point == mobileonly {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+}
+
+// clearfix
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Nice Underline
+
+@mixin underline(
+  $color: $color-black,
+  $background-color: null,
+  $weight: 1px,
+  $offset: 10px
+) {
+  text-decoration: none;
+  background-image: linear-gradient(
+    to top,
+    transparent,
+    transparent $offset,
+    $color $offset,
+    $color ($offset + $weight),
+    transparent ($offset + $weight)
+  );
+
+  // only apply text shadow if background color has been passed in
+  @if ($background-color != null) {
+    text-shadow: -2px -2px 0 $background-color, 2px -2px 0 $background-color,
+      -2px 2px 0 $background-color, 2px 2px 0 $background-color;
+  }
+}

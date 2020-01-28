@@ -1,12 +1,14 @@
 .flaglist {
   display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   align-items: center;
   background-color: rgba(#000, 0.5);
-  padding: 0 0.5rem 0 0.5rem;
+  padding: 0.5rem 0.5rem;
 
   > li {
     // background-color: red;
-    padding: 0.5rem 0.666rem 0.25rem 0.666rem;
+    padding: 0.333rem 0.5rem 0.125rem 0.5rem;
   }
 }
 
@@ -19,10 +21,15 @@
   text-decoration: none;
   color: #fff;
   text-align: center;
+  width: 2.75rem;
+  &:hover,
+  &:focus {
+    color: $cl-primary;
+  }
   img {
     display: block;
     margin: 0 auto 0.25rem;
-    width: 3rem;
+    width: inherit;
   }
 }
 
@@ -34,10 +41,16 @@
   background-color: rgba(#000, 0.5);
   color: #fff;
   display: inline-block;
-  margin: 0 0.5rem 0 0;
+  margin: 0 0 0.5rem 0;
   line-height: 2.25;
+  align-self: center;
+
+  @include breakpoint("tablet") {
+    margin: 0 0.5rem 0 0;
+  }
+
   img {
     margin-right: 0.5rem;
-    width: 2.25rem;
+    width: 2.125rem;
   }
 }

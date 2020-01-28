@@ -1,8 +1,10 @@
 @charset 'utf-8';
 
 @import "variables";
+@import "global/mixins";
 @import "global/resets";
 @import "global/base";
+
 @import "slick.scss";
 @import "components/slick";
 @import "components/banner";
