@@ -25,5 +25,16 @@ $(".banner-carousel").slick({
   autoplay: true,
   autoplaySpeed: 3000,
   arrows: false,
-  pauseOnHover: false
+  pauseOnHover: false,
+  asNavFor: ".dotscarousel",
+  dots: false
+});
+
+$(".dotscarousel").slick({
+  slidesToShow: 6,
+  slidesToScroll: 1,
+  asNavFor: ".banner-carousel",
+  dots: false,
+  //   centerMode: true,
+  focusOnSelect: true
 });
