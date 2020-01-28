@@ -1,0 +1,43 @@
+.flaglist {
+  display: flex;
+  align-items: center;
+  background-color: rgba(#000, 0.5);
+  padding: 0 0.5rem 0 0.5rem;
+
+  > li {
+    // background-color: red;
+    padding: 0.5rem 0.666rem 0.25rem 0.666rem;
+  }
+}
+
+.flag {
+  text-transform: uppercase;
+  font-weight: bold;
+  display: block;
+  font-size: 0.3666rem;
+  line-height: 1;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  img {
+    display: block;
+    margin: 0 auto 0.25rem;
+    width: 3rem;
+  }
+}
+
+.chl {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: rgba(#000, 0.5);
+  color: #fff;
+  display: inline-block;
+  margin: 0 0.5rem 0 0;
+  line-height: 2.25;
+  img {
+    margin-right: 0.5rem;
+    width: 2.25rem;
+  }
+}
