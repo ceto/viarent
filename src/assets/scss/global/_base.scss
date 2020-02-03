@@ -9,7 +9,7 @@ html {
     font-size: 16px;
   }
   @include breakpoint("largedesktop") {
-    font-size: calc(16px + 0.5vw);
+    font-size: calc(17px );
   }
 }
 *,
@@ -38,21 +38,28 @@ img {
 .main__one {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform:translatex(-50%);
   z-index: 100;
+  @include breakpoint("tablet") {
+      left:0;
+      transform:none;
+  }
 }
 
 .main__two {
   position: absolute;
   z-index: 100;
   top: 6rem;
-  left: 0;
+  left: 50%;
+  transform:translateX(-50%);
   //   width: 90vw;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
 
   @include breakpoint("tablet") {
+    transform:none;
     flex-direction: row;
     top: 0;
     right: 0;
@@ -63,36 +70,54 @@ img {
 }
 
 .main__three {
+  //display:none;
   position: absolute;
   z-index: 100;
-  left: 0;
-  bottom: 7rem;
+  left: 50%;
+  transform:translateX(-50%) scale(.5);
+  bottom: .5rem;
   @include breakpoint("tablet") {
-    bottom: 3rem;
+    bottom: 2.5rem;
+    left:0;
+    transform:none;
+    //display:block;
   }
 }
 .main__four {
   position: absolute;
   z-index: 100;
-  bottom: 0;
-  left: 0;
+  top:10rem;
+  left: 50%;
+  transform:translateX(-50%);
+  width:21.25rem;
+
   @include breakpoint("tablet") {
+    transform:none;
     bottom: 0;
+    top: auto;
     right: 0;
     left: auto;
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
   }
 }
 
 .sitelogo {
-  background-color: #fff;
-  padding: 0.75rem 0.75rem;
+  background-color: transparent;
+  padding: 1rem 0.75rem;
+  filter: brightness(300);
+  @include breakpoint("tablet") {
+      filter:none;
+    background-color: #fff;
+    padding: 0.75rem 0.75rem;
+  }
   img {
     width: 8rem;
   }
 }
 
 .dotscarousel {
+    width:15rem;
+    background-color:red;
 }
 .dotscarousel__item {
   display: block;

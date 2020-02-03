@@ -138,13 +138,13 @@ $slick-opacity-not-active: 0.25 !default;
 
 .slick-dots {
   //   background-color: red;
-  position: absolute;
-  bottom: 7rem;
+//   position: absolute;
+//   bottom: 7rem;
   list-style: none;
   display: block;
   text-align: center;
   padding: 0;
-  margin: 0 0 0 5vw;
+  margin: 0 0 0 0;
   //   width: 100%;
   @include breakpoint("tablet") {
     bottom: 4rem;
