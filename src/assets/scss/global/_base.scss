@@ -9,7 +9,7 @@ html {
     font-size: 16px;
   }
   @include breakpoint("largedesktop") {
-    font-size: calc(17px );
+    font-size: calc(17px);
   }
 }
 *,
@@ -39,11 +39,11 @@ img {
   position: absolute;
   top: 0;
   left: 50%;
-  transform:translatex(-50%);
+  transform: translatex(-50%);
   z-index: 100;
   @include breakpoint("tablet") {
-      left:0;
-      transform:none;
+    left: 0;
+    transform: none;
   }
 }
 
@@ -52,14 +52,14 @@ img {
   z-index: 100;
   top: 6rem;
   left: 50%;
-  transform:translateX(-50%);
+  transform: translateX(-50%);
   //   width: 90vw;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
 
   @include breakpoint("tablet") {
-    transform:none;
+    transform: none;
     flex-direction: row;
     top: 0;
     right: 0;
@@ -74,25 +74,25 @@ img {
   position: absolute;
   z-index: 100;
   left: 50%;
-  transform:translateX(-50%) scale(.5);
-  bottom: .5rem;
+  transform: translateX(-50%) scale(0.5);
+  bottom: 1.5rem;
   @include breakpoint("tablet") {
     bottom: 2.5rem;
-    left:0;
-    transform:none;
+    left: 0;
+    transform: none;
     //display:block;
   }
 }
 .main__four {
   position: absolute;
   z-index: 100;
-  top:10rem;
+  top: 10rem;
   left: 50%;
-  transform:translateX(-50%);
-  width:21.25rem;
+  transform: translateX(-50%);
+  width: 21.25rem;
 
   @include breakpoint("tablet") {
-    transform:none;
+    transform: none;
     bottom: 0;
     top: auto;
     right: 0;
@@ -106,7 +106,7 @@ img {
   padding: 1rem 0.75rem;
   filter: brightness(300);
   @include breakpoint("tablet") {
-      filter:none;
+    filter: none;
     background-color: #fff;
     padding: 0.75rem 0.75rem;
   }
@@ -116,8 +116,8 @@ img {
 }
 
 .dotscarousel {
-    width:15rem;
-    background-color:red;
+  width: 15rem;
+  background-color: red;
 }
 .dotscarousel__item {
   display: block;
