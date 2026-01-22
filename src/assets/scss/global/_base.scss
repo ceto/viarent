@@ -89,7 +89,7 @@ img {
   top: 10rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 21.25rem;
+  width: 24.25rem;
 
   @include breakpoint("tablet") {
     transform: none;
@@ -98,6 +98,7 @@ img {
     right: 0;
     left: auto;
     padding-bottom: 1.5rem;
+    width: 26rem;
   }
 }
 
